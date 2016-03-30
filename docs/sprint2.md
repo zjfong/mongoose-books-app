@@ -28,9 +28,9 @@ We have authors listed as just a string inside books, but what happens if we wan
     var Schema = mongoose.Schema;
 
     var AuthorSchema = new Schema({
-         name: String,
-        // you should fill the rest of this in
-     });
+      name: String,
+      // you should fill the rest of this in
+    });
     ```
   </details>
 
@@ -53,6 +53,7 @@ We have authors listed as just a string inside books, but what happens if we wan
   <details><summary>Stuck figuring out what code to include? Click here.</summary>
 
   ```js
+  // models/author.js
   module.exports = Author;
   ```
 
@@ -71,7 +72,7 @@ We have authors listed as just a string inside books, but what happens if we wan
   </details>
 
 
-  Now if someone were to `require('./models')` they'd gain access to _both_ the `Book` database model _and_ the `Author` database model.  In fact, the object brought in with `require('./models')` will be exactly this:
+  Now since we `require('./models')` in `server.js`, `server.js` automatically gains access to _both_ the `Book` database model _and_ the `Author` database model.  In fact, the object brought in with `require('./models')` will be exactly this:
 
   ```js
   { "Book": Book,  "Author": Author }
@@ -134,6 +135,9 @@ We have authors listed as just a string inside books, but what happens if we wan
       console.log("created", authors.length, "authors");
     });
   });
+
+  // this already exists in seed.js
+  db.Book.remove({} ... )
   ```
 
   </details>
