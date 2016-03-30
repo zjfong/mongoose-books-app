@@ -240,6 +240,22 @@ var BookSchema = new Schema({
   });
   ```
 
+## 5. But the view from here is bad!
+1. When you look at your view, instead of seeing the nicely listed author, you should see the author object.
+![author object](https://cloud.githubusercontent.com/assets/3010270/14153137/6c0b4432-f66b-11e5-9440-b122c471e746.png)
+
+1. Why is this? Look at the data being returned from the server and fix your `html` to show the author name!
+
+```html
+<details><summary>Click to view hint</summary>
+<p>
+  <b>{{title}}</b>
+  <!-- just this next line is what needs to be changed! -->
+  by {{author.name}}
+  <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
+</p>
+</details>
+```
 
 
 
