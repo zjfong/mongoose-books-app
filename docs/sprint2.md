@@ -1,10 +1,15 @@
-# Sprint B - relationships & referenced data
+# Sprint 2 - relationships & referenced data
 
 ## 1. You enter a vast building full of books.
 
+1. To start this sprint, checkout the correct branch (you need to have all the changes in your current branch checked in to checkout a new branch):
+  ```
+  git checkout starting-point-sprint-2
+  ```
+
 1. At this point, you should have a node app set up to serve data about books and even allow users to add books, change them, and delete them. Look through any code in `server.js` and in the `models` directory that's new to you.
 
-1. Open up your browser and startup the server.  Take a look at the updated front-end.
+1. Startup the server and open up your browser.  Take a look at the updated front-end.
 
 ## 2. More than just a piece of text!
 
@@ -255,7 +260,7 @@ Referencing authors is a good choice here because:
 
 ## Challenge!
 
-On your own, use the mongoose methods to replace the other `/api/books*` routes with mongoose commands, taking into account the new referenced data relationship. 
+On your own, use the mongoose methods to replace the other `/api/books*` routes with mongoose commands, taking into account the new referenced data relationship.
 
 Make sure you look back to the lecture notes for info on the most important methods like:
 * find
