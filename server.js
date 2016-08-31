@@ -10,6 +10,8 @@
 var express = require('express'),
   bodyParser = require('body-parser');
 
+var db = require('./models')
+
 // generate a new express app and call it 'app'
 var app = express();
 
@@ -68,10 +70,18 @@ app.get('/', function (req, res) {
 });
 
 // get all books
+// app.get('/api/books', function (req, res) {
+//   // send all books as JSON response
+//   console.log('books index');
+//   res.json(books);
+// });
+
 app.get('/api/books', function (req, res) {
   // send all books as JSON response
-  console.log('books index');
-  res.json(books);
+  db.Book.find(function(err, books){
+    if (err) { return console.log("index error: " + err); }
+    res.json(books);
+  });
 });
 
 // get one book
@@ -85,6 +95,12 @@ app.get('/api/books/:id', function (req, res) {
     }
   }
 });
+
+// app.get('/api/books/:id', function (req, res) {
+//   // find one book by its id
+//   var bookId = req.params.id;
+//   db.Book.findOne({_id: bookId}, function)
+// });
 
 // create new book
 app.post('/api/books', function (req, res) {

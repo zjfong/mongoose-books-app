@@ -69,3 +69,5 @@ db.Book.remove({}, function(err, books){
     });
   }
 });
+
+db.Author.remove({}, function(){});
