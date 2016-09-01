@@ -1,3 +1,13 @@
+Zachary Fong  
+https://github.com/zjfong/mongoose-books-app  
+  
+Learning mongodb and mongoose.  
+
+The training was fun because it showed the differences between updating a local array versus updating a database object. The important methods were .find(), .findOne(), and .findOneAndRemove().  
+  
+Remember to access the database using db.*Model*
+
+
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="60"> Mongoose Training
 
 ## Pre-requisites
