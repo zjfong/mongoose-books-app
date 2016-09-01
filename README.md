@@ -3,7 +3,7 @@ https://github.com/zjfong/mongoose-books-app
   
 Learning mongodb and mongoose.  
 
-The training was fun because it showed the differences between updating a local array versus updating a database object. The important methods were .find(), .findOne(), and .findOneAndRemove().  
+The training was fun because it showed the differences between updating data in a server versus updating data in a server's database. The important methods were .find(), .findOne(), and .findOneAndRemove().  
   
 Remember to access the database using db.*Model*
 
