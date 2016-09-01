@@ -83,20 +83,26 @@ app.get('/api/books/:id', function (req, res) {
   // find one book by its id
   var bookId = req.params.id;
   db.Book.findOne({_id: bookId}, function(err, books){
-    if (err) {
+    if(err){
       return console.log("search error: " + err);
     };
     res.json(books)
   })
 });
 
-// create new book
+
 app.post('/api/books', function (req, res) {
   // create new book with form data (`req.body`)
-  console.log('books create', req.body);
-  var newBook = req.body;
-  books.push(newBook);
-  res.json(newBook);
+  var newBook = new db.Book(req.body);
+  //console.log(newBook);
+
+   // db.Book.newBook;
+  newBook.save(function(err){
+    if(err){
+      return console.log("create error: " + err);
+    };
+     res.json(newBook);
+  });
 });
 
 // update book
