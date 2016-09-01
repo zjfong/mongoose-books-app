@@ -85,12 +85,12 @@ app.get('/api/books/:id', function (req, res) {
   db.Book.findOne({_id: bookId}, function(err, books){
     if(err){
       return console.log("search error: " + err);
-    };
+    }
     res.json(books)
   })
 });
 
-
+// create new book
 app.post('/api/books', function (req, res) {
   // create new book with form data (`req.body`)
   var newBook = new db.Book(req.body);
@@ -105,20 +105,40 @@ app.post('/api/books', function (req, res) {
   });
 });
 
+// app.put('/api/books/:id', function(req,res){
+// // get book id from url params (`req.params`)
+//   console.log('books update', req.params);
+//   var bookId = req.params.id;
+//   // find the index of the book we want to remove
+//   var updateBookIndex = books.findIndex(function(element, index) {
+//     return (element._id === parseInt(req.params.id)); //params are strings
+//   });
+//   console.log('updating book with index', deleteBookIndex);
+//   var bookToUpdate = books[deleteBookIndex];
+//   books.splice(updateBookIndex, 1, req.params);
+//   res.json(req.params);
+// });
+
 // update book
 app.put('/api/books/:id', function(req,res){
 // get book id from url params (`req.params`)
-  console.log('books update', req.params);
-  var bookId = req.params.id;
-  // find the index of the book we want to remove
-  var updateBookIndex = books.findIndex(function(element, index) {
-    return (element._id === parseInt(req.params.id)); //params are strings
-  });
-  console.log('updating book with index', deleteBookIndex);
-  var bookToUpdate = books[deleteBookIndex];
-  books.splice(updateBookIndex, 1, req.params);
-  res.json(req.params);
+  //console.log('books update', req.params);
+var bookId = req.params.id;
+
+  db.Book.findOne({_id: bookId}, function(err, books){
+    if(err){
+      return console.log("search error: " + err);
+    };
+    books.title = req.params.title;
+    books.author = req.params.author;
+    books.image = req.params.image;
+    books.release_date = req.params.release_date;
+    res.send(books);
+  })
 });
+
+
+
 
 // delete book
 app.delete('/api/books/:id', function (req, res) {
